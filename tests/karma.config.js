@@ -7,7 +7,13 @@ module.exports = function (config) {
       'chai',
       'sinon'
     ],
-    browsers: ['ChromeHeadless'],
+    browsers: ['ChromeHeadlessNoSandbox'],
+    customLaunchers: {
+      ChromeHeadlessNoSandbox: {
+        base: 'ChromeHeadless',
+        flags: ['-no-sandbox'],
+      },
+    },
     plugins: [
       'karma-mocha',
       'karma-chai',
